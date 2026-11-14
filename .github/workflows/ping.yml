@@ -7,4 +7,6 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - run: curl -fsS -m 60 -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" https://groundedrefunds.com/api/alerts/
+      - name: Call alerts endpoint
+        run: |
+          curl -fsS -m 60 -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" https://groundedrefunds.com/api/alerts/
